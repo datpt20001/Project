@@ -21,4 +21,21 @@ public class Validation {
             }
         }
     }
+    public  String convertDecTo(String dec, int base) {
+        String digitCheck;
+        if (base == 2){
+            digitCheck = "01";
+        } else {
+            digitCheck = "0123456789ABCDEF";
+        }
+        String answer = "";
+        int tempDec = Integer.parseInt(dec);
+        while (tempDec != 0) {
+            int div = tempDec / base;
+            int mod = tempDec % base;
+            answer = digitCheck.charAt(mod) + answer;
+            tempDec = div;
+        }
+        return answer;
+    }
 }
